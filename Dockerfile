@@ -9,7 +9,8 @@ RUN apt install -y git curl zsh build-essential vim bash
 # Clean up after install to reduce image size
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
-# For security reason, it's best to use non-root user, and the ubuntu image come wiith default ubuntu by default
+# For security reason, it's best to use non-root user, and the ubuntu image come with default ubuntu by default
+RUN usermod --shell /bin/zsh ubuntu
 USER ubuntu
 
 ENV HOME=/home/ubuntu
